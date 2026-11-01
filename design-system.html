@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASAP Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Style-guide-only helpers (not part of the site stylesheet) */
+    .ds-label { font-family: var(--f-head); font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--c-muted); margin-bottom: var(--sp-3); }
+    .ds-block + .ds-block { margin-top: var(--sp-6); }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--sp-2); }
+    .swatch { border: 1px solid var(--c-line); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-small); }
+    .swatch__chip { height: 88px; }
+    .swatch__meta { padding: .75rem; }
+    .swatch__meta strong { display: block; font-family: var(--f-head); color: var(--c-navy); }
+    .type-row { display: grid; gap: var(--sp-1) var(--sp-4); padding-block: var(--sp-3); border-bottom: 1px solid var(--c-line); }
+    @media (min-width: 768px) { .type-row { grid-template-columns: 180px 1fr; align-items: baseline; } }
+    .type-row code { font-size: .8125rem; color: var(--c-muted); }
+    .space-bar { height: 14px; background: var(--c-light-blue); border-left: 3px solid var(--c-blue); }
+    .space-row { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-2); align-items: center; font-size: var(--fs-small); margin-bottom: .5rem; }
+    .rule-box { padding: var(--sp-3); border-left: 3px solid var(--c-red); background: var(--c-surface); }
+    .rule-box.ok { border-left-color: #1E8E5A; }
+    .ds-note { font-size: var(--fs-small); color: var(--c-muted); margin-top: var(--sp-2); }
+    .hero-demo { display: grid; gap: var(--sp-5); align-items: center; }
+    @media (min-width: 992px) { .hero-demo { grid-template-columns: 1fr 1.2fr; gap: var(--sp-6); } }
+    .device-row { display: grid; gap: var(--sp-4); }
+    @media (min-width: 900px) { .device-row { grid-template-columns: 2fr 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ===== Header (production component) ===== -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__group">
+      <span class="topbar__badge">24/7 Emergency Service</span>
+      <span class="topbar__hide-sm">Se Habla Español</span>
+    </div>
+    <div class="topbar__group">
+      <a href="tel:+16612649880">661.264.9880</a>
+      <a href="tel:+18776112727">877.611.ASAP</a>
+      <a class="topbar__hide-sm" href="mailto:Service@PhonesByASAP.com">Service@PhonesByASAP.com</a>
+    </div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html"><img src="assets/images/asap-logo.webp" alt="ASAP Business Communications" width="150" height="101"></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="index.html">Home</a></li>
+        <li class="nav__item"><a class="nav__link" href="about.html">About Us</a></li>
+        <li class="nav__item nav__item--has-sub">
+          <a class="nav__link" href="services.html" aria-haspopup="true" aria-expanded="false">Services <svg class="nav__caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <ul class="nav__sub">
+            <li><a href="services.html">All Services</a></li>
+            <li><a href="https://www.phonesbyasap.com/2poh.html#one">Promotions On Hold</a></li>
+            <li><a href="http://asapreminder.com/faxit-asap-sign-up/">Fax to Email</a></li>
+            <li><a href="https://phonesbyasap.com/setclock.html">Setting System Clock</a></li>
+            <li><a href="https://www.phonesbyasap.com/headsets/headsets.html">Headsets and More</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="https://phonesbyasap.com/products.html">Products</a></li>
+        <li class="nav__item"><a class="nav__link" href="https://phonesbyasap.com/voip.html">VoIP</a></li>
+        <li class="nav__item nav__item--has-sub">
+          <a class="nav__link" href="https://phonesbyasap.com/support.html" aria-haspopup="true" aria-expanded="false">Support <svg class="nav__caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <ul class="nav__sub">
+            <li><a href="https://phonesbyasap.com/support.html">Support Documents</a></li>
+            <li><a href="https://phonesbyasap.com/train-videos.html">Support Videos</a></li>
+            <li><a href="https://phonesbyasap.com/contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li class="nav__item nav__item--has-sub">
+          <a class="nav__link" href="https://asap.freshbooks.com/" aria-haspopup="true" aria-expanded="false">Login <svg class="nav__caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <ul class="nav__sub">
+            <li><a href="https://asap.freshbooks.com/">Customer Billing (FreshBooks)</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a class="btn btn--primary" href="https://phonesbyasap.com/contact.html">Request Service</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ===== Intro ===== -->
+  <section class="section section--tight section--surface">
+    <div class="container">
+      <span class="eyebrow">Stage 2 · Design direction</span>
+      <h1>ASAP Design System</h1>
+      <p class="lead" style="max-width:720px">One visual language for Home, About and Services. Every value is a CSS variable that maps to an Elementor Global Color, Global Font or container setting. The header above is the real component. Resize the window to see the mobile menu.</p>
+    </div>
+  </section>
+
+  <!-- ===== Hero direction ===== -->
+  <section class="section">
+    <div class="container">
+      <p class="ds-label">01 — Hero direction (homepage)</p>
+      <div class="hero-demo">
+        <div>
+          <span class="eyebrow">Providing Business Telephone Solutions Since 2001</span>
+          <h2 style="font-size:var(--fs-display)">Business phone systems &amp; VoIP, installed and supported by local experts.</h2>
+          <p class="lead">Traditional telephones, Hosted PBX, and voice and data cabling. One vendor for your office communications.</p>
+          <div class="btn-row" style="margin-top:var(--sp-4)">
+            <a class="btn btn--primary" href="#">Request Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--secondary" href="#">Explore Services</a>
+          </div>
+          <div class="cred"><strong>2001</strong><span>Serving businesses from our Antelope Valley headquarters since 2001, with 24/7/365 live support.</span></div>
+        </div>
+        <figure class="media media--framed">
+          <img src="assets/images/phone-hero-desk.webp" alt="ASAP business desk telephone with handset, colour screen showing the ASAP logo, and full keypad" width="800" height="450">
+        </figure>
+      </div>
+      <p class="ds-note">Text and photo are two separate columns, so nothing overlaps the telephone. The photo always shows its full frame (handset, screen, keypad and cord). On mobile the photo stacks under the headline at full width.</p>
+    </div>
+  </section>
+
+  <!-- ===== Colour ===== -->
+  <section class="section section--surface">
+    <div class="container">
+      <p class="ds-label">02 — Colour</p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch__chip" style="background:#003B75"></div><div class="swatch__meta"><strong>Primary Navy</strong>#003B75 · headings, nav, dark bands</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#E31E24"></div><div class="swatch__meta"><strong>Red</strong>#E31E24 · primary CTA, eyebrows, accents only</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#0E5AA7"></div><div class="swatch__meta"><strong>Blue</strong>#0E5AA7 · links, icons</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#D6E9F5"></div><div class="swatch__meta"><strong>Light Blue</strong>#D6E9F5 · photo mats, light bands</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#183246"></div><div class="swatch__meta"><strong>Main Text</strong>#183246 · body copy</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#FFFFFF"></div><div class="swatch__meta"><strong>White</strong>#FFFFFF · default background</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#F4F8FB"></div><div class="swatch__meta"><strong>Surface</strong>#F4F8FB · alternating sections</div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:#002A55"></div><div class="swatch__meta"><strong>Navy Deep</strong>#002A55 · top bar, footer</div></div>
+      </div>
+      <p class="ds-note">Usage ratio is about 70 % white/surface, 20 % navy, 10 % red. Red is kept for actions and small accents so the Request Service button always stands out. No gradients.</p>
+    </div>
+  </section>
+
+  <!-- ===== Typography ===== -->
+  <section class="section">
+    <div class="container">
+      <p class="ds-label">03 — Typography · Manrope (headings) + Inter (body), both Google Fonts</p>
+      <div class="type-row"><code>H1 · Manrope 800 · 36→60px</code><h1 style="margin:0">Keeping your telephones ringing</h1></div>
+      <div class="type-row"><code>H2 · Manrope 800 · 28→44px</code><h2 style="margin:0">Voice and data cabling</h2></div>
+      <div class="type-row"><code>H3 · Manrope 700 · 20→24px</code><h3 style="margin:0">24 Hour Emergency Service</h3></div>
+      <div class="type-row"><code>Eyebrow · Manrope 800 · 13px caps</code><span class="eyebrow" style="margin:0">Certified Technicians</span></div>
+      <div class="type-row"><code>Lead · Inter 400 · 17→20px</code><p class="lead" style="margin:0">We Listen. We Respond. We deliver ASAP.</p></div>
+      <div class="type-row"><code>Body · Inter 400 · 16px / 1.65</code><p style="margin:0;max-width:680px">Our factory and/or in house certified technical staff offer 24/7/365 live support for all our customers. We guarantee to get the job done right the first time.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== Buttons ===== -->
+  <section class="section section--surface">
+    <div class="container">
+      <p class="ds-label">04 — Buttons and links</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#">Request Service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--secondary" href="#">Explore Services</a>
+        <a class="link-arrow" href="#" style="align-self:center">Learn more</a>
+      </div>
+      <div class="btn-row" style="margin-top:var(--sp-3);padding:var(--sp-3);background:var(--c-navy);border-radius:var(--radius)">
+        <a class="btn btn--light" href="#">Call 877.611.ASAP</a>
+        <a class="btn btn--ghost-light" href="#">Contact Us</a>
+      </div>
+      <p class="ds-note">52 px minimum height (touch-friendly), 4 px radius, and a small arrow that nudges on hover. Primary is red, secondary is a navy outline, and light/ghost variants sit on navy bands.</p>
+    </div>
+  </section>
+
+  <!-- ===== Image presentation ===== -->
+  <section class="section">
+    <div class="container">
+      <p class="ds-label">05 — Image presentation rules</p>
+      <div class="split split--even">
+        <figure class="media media--framed media--framed-left">
+          <img src="assets/images/service-van-fleet-logo.webp" alt="ASAP Business Communications service van with logo, 877-611-ASAP and PhonesByASAP.com" width="800" height="533">
+          <figcaption class="media__caption">Framed: full original photo with the van logo, number and URL all visible.</figcaption>
+        </figure>
+        <figure class="media media--framed">
+          <img src="assets/images/receptionist-headset-phone.webp" alt="ASAP receptionist on a headset beside a complete ASAP desk phone and sidecar" width="800" height="450">
+          <figcaption class="media__caption">Uncropped: the full phone and sidecar stay visible at bottom-left, which was the client's complaint.</figcaption>
+        </figure>
+      </div>
+      <div class="grid grid--2" style="margin-top:var(--sp-5)">
+        <div class="rule-box ok"><h4>Always</h4><ul class="check-list" style="margin-top:0"><li>Use an <code>&lt;img&gt;</code> at its native aspect ratio (<code>height:auto</code>)</li><li>Put text <em>beside</em> or <em>below</em> the photo</li><li>Use a light-blue mat offset for a premium framed look</li><li>Show product detail shots in a contain-box with a neutral background</li></ul></div>
+        <div class="rule-box"><h4>Never</h4><ul class="check-list" style="margin-top:0"><li>Use a photo as a background image with a text overlay</li><li><code>object-fit: cover</code> on a phone or van photo</li><li>Fix a height that crops the bottom (the phone) or the centre (the van logo)</li><li>Stretch a photo beyond ~1.5× its 800 px source</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Spacing ===== -->
+  <section class="section section--surface">
+    <div class="container">
+      <p class="ds-label">06 — Spacing and layout</p>
+      <div class="space-row"><span>Section padding</span><div class="space-bar" style="width:min(100%,120px)"></div></div>
+      <div class="space-row"><span>Block gap (64)</span><div class="space-bar" style="width:64px"></div></div>
+      <div class="space-row"><span>Heading gap (48)</span><div class="space-bar" style="width:48px"></div></div>
+      <div class="space-row"><span>Element gap (16)</span><div class="space-bar" style="width:16px"></div></div>
+      <div class="space-row"><span>Side gutter</span><div class="space-bar" style="width:40px"></div></div>
+      <p class="ds-note">Container 1240 px. Section padding scales from 64 px (mobile) to 120 px (desktop), and the side gutter from 16 to 40 px. Sections alternate white and surface; navy bands are used sparingly (VoIP benefits, emergency CTA). Breakpoints: 576 / 768 / 992 / 1200. These match Elementor's mobile, tablet, laptop and desktop presets.</p>
+    </div>
+  </section>
+
+  <!-- ===== Section patterns ===== -->
+  <section class="section">
+    <div class="container">
+      <p class="ds-label">07 — Section pattern: split (image + text)</p>
+      <div class="split split--reverse">
+        <figure class="media media--framed">
+          <img src="assets/images/technician-network-rack.webp" alt="ASAP technician patching blue data cables in a network rack, with an ASAP desk phone and service van visible" width="800" height="450">
+        </figure>
+        <div>
+          <span class="eyebrow">Voice &amp; Data Cabling</span>
+          <h2>Structured cabling done right the first time</h2>
+          <p class="text-muted">The image column and text column alternate sides down the page. On mobile the image always comes first and is never cropped.</p>
+          <ul class="check-list"><li>Voice cabling</li><li>Data cabling</li><li>Network infrastructure</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container">
+      <p class="ds-label" style="color:#9FB9D3">08 — Section pattern: feature row on navy (no boxed cards)</p>
+      <div class="section-head"><span class="eyebrow">Why VoIP is good for business</span><h2>Ruled columns instead of floating cards</h2></div>
+      <div class="grid grid--3">
+        <div class="feature"><div class="feature__num">01</div><h3>Cost Savings</h3><p>Placeholder copy. The final text comes from new.html.</p></div>
+        <div class="feature"><div class="feature__num">02</div><h3>Scalability</h3><p>Placeholder copy. The final text comes from new.html.</p></div>
+        <div class="feature"><div class="feature__num">03</div><h3>Advanced Features</h3><p>Placeholder copy. The final text comes from new.html.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Mobile direction ===== -->
+  <section class="section">
+    <div class="container">
+      <p class="ds-label">09 — Desktop vs mobile direction</p>
+      <div class="device-row">
+        <div class="rule-box ok"><h4>Desktop (≥1200)</h4><p>Top bar with phones and 24/7 badge · sticky white header with full nav and hover dropdowns · split sections alternating left/right · photos ~55 % of the row · 3-column feature rows.</p></div>
+        <div class="rule-box ok"><h4>Mobile (≤575)</h4><p>Top bar keeps the badge and phone numbers (tap to call) · hamburger opens a full-width drawer with tap-to-expand submenus · photo first, full width, uncropped · CTA buttons go full width.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== Footer (production component) ===== -->
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <img src="assets/images/asap-logo.webp" alt="ASAP Business Communications" width="150" height="101">
+      <p>Providing Business Telephone Solutions Since 2001.</p>
+    </div>
+    <div>
+      <h4>Contact ASAP</h4>
+      <ul class="footer__list">
+        <li>44861 10th Street West<br>Lancaster, CA 93534</li>
+        <li><a href="tel:+16612649880">661.264.9880</a></li>
+        <li><a href="tel:+18776112727">877.611.ASAP</a></li>
+        <li><a href="mailto:info@PhonesByASAP.com">info@PhonesByASAP.com</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul class="footer__list">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="https://phonesbyasap.com/products.html">Products</a></li>
+        <li><a href="https://phonesbyasap.com/support.html">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>ASAP Family</h4>
+      <ul class="footer__list">
+        <li><a href="http://www.asapreminder.com/">ASAP Appointment Reminder</a></li>
+        <li><a href="http://asapreminder.com/faxit-asap-sign-up/">Fax It ASAP</a></li>
+        <li><a href="http://www.returnitasap.com/">Return It ASAP</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© ASAP Business Communications LLC</span>
+    <span>24/7 Emergency Service · Se Habla Español</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
